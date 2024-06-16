@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:waiter_app/presentation/screens/custom_drawer.dart';
 
 import '../bloc/table_bloc.dart';
 
@@ -9,6 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(),
       appBar: AppBar(
         title: const Text('Waiter App'),
       ),
