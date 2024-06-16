@@ -80,12 +80,19 @@ class OrderScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ElevatedButton(
+                padding: const EdgeInsets.only(bottom: 400),
+                child: FilledButton(
                   onPressed: () {
                     context.read<TableBloc>().add(PlaceOrder(table.id));
                   },
-                  child: const Text('Place Order'),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50)
+                  ),
+                  child: const Text('Place Order', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
                 ),
               ),
             ],

@@ -11,7 +11,7 @@ class CustomDrawer extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 150, horizontal: 20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ElevatedButton(
               onPressed: () {
@@ -23,25 +23,12 @@ class CustomDrawer extends StatelessWidget {
               },
               child: const Text('Order history'),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Categories'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('FAQ'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Categories'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('FAQ'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Categories'),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 40),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text('Categories'),
+              ),
             ),
             ElevatedButton(
               onPressed: () {},
