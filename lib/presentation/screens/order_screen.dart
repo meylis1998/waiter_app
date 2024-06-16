@@ -30,7 +30,8 @@ class OrderScreen extends StatelessWidget {
                               IconButton(
                                 icon: const Icon(Icons.remove),
                                 onPressed: () {
-                                  context.read<TableBloc>().add(DecrementMeal(updatedTable.id, meal.name));
+                                  context.read<TableBloc>().add(DecrementMeal(
+                                      updatedTable.id, meal.name));
                                 },
                               ),
                               Text(
@@ -43,7 +44,8 @@ class OrderScreen extends StatelessWidget {
                               IconButton(
                                 icon: const Icon(Icons.add),
                                 onPressed: () {
-                                  context.read<TableBloc>().add(IncrementMeal(updatedTable.id, meal.name));
+                                  context.read<TableBloc>().add(IncrementMeal(
+                                      updatedTable.id, meal.name));
                                 },
                               ),
                             ],
@@ -57,7 +59,8 @@ class OrderScreen extends StatelessWidget {
                               IconButton(
                                 icon: const Icon(Icons.remove),
                                 onPressed: () {
-                                  context.read<TableBloc>().add(DecrementDrink(updatedTable.id, drink.name));
+                                  context.read<TableBloc>().add(DecrementDrink(
+                                      updatedTable.id, drink.name));
                                 },
                               ),
                               Text(
@@ -70,7 +73,8 @@ class OrderScreen extends StatelessWidget {
                               IconButton(
                                 icon: const Icon(Icons.add),
                                 onPressed: () {
-                                  context.read<TableBloc>().add(IncrementDrink(updatedTable.id, drink.name));
+                                  context.read<TableBloc>().add(IncrementDrink(
+                                      updatedTable.id, drink.name));
                                 },
                               ),
                             ],
@@ -84,15 +88,25 @@ class OrderScreen extends StatelessWidget {
                 child: FilledButton(
                   onPressed: () {
                     context.read<TableBloc>().add(PlaceOrder(table.id));
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Order success!'),
+                        duration: Duration(seconds: 1),
+                      ),
+                    );
                   },
                   style: FilledButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50)
+                      backgroundColor: Colors.green,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 50)),
+                  child: const Text(
+                    'Place Order',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
-                  child: const Text('Place Order', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
                 ),
               ),
             ],

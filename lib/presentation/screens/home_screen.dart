@@ -15,31 +15,30 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Waiter App'),
       ),
-      body: BlocBuilder<TableBloc, TableState>(
-        builder: (context, state) {
-          return GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 5,
-              childAspectRatio: 4 / 3,
-            ),
-            itemCount: state.tables.length,
-            itemBuilder: (context, index) {
-              final table = state.tables[index];
-              // return ListTile(
-              //   title: Text('Table ${table.id}'),
-              //   onTap: () {
-              //     Navigator.pushNamed(
-              //       context,
-              //       '/order',
-              //       arguments: table,
-              //     );
-              //   },
-              // );
-              return TableWidget(table: table);
-            },
-          );
-        },
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 40),
+        child: BlocBuilder<TableBloc, TableState>(
+          builder: (context, state) {
+            return GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 20,
+                childAspectRatio: 4 / 3,
+              ),
+              itemCount: state.tables.length,
+              itemBuilder: (context, index) {
+                final table = state.tables[index];
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/order', arguments: table);
+                  },
+                  child: TableWidget(table: table),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

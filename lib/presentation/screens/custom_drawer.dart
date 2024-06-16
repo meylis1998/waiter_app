@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/drawer_button.dart';
 import 'order_history.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -11,9 +12,9 @@ class CustomDrawer extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 150, horizontal: 20),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ElevatedButton(
+            CustomDrawerButton(
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -21,19 +22,13 @@ class CustomDrawer extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('Order history'),
+              name: "Order History",
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text('Categories'),
-              ),
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: CustomDrawerButton(name: 'Categories', onPressed: () {}),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('FAQ'),
-            ),
+            CustomDrawerButton(onPressed: () {}, name: 'FAQ'),
           ],
         ),
       ),

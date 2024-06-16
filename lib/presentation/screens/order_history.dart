@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:waiter_app/data/repositories/order_repository.dart';
 
 import '../../domain/entities/order_hive_entity.dart';
@@ -31,8 +32,13 @@ class OrderHistoryScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final order = orders[index];
                 return ListTile(
-                  title: Text('Table ${order.tableId}'),
-                  subtitle: Text('Ordered on ${order.timestamp}'),
+                  title: Text(
+                    'Table ${order.tableId}',
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(
+                      'Ordered on  ${DateFormat('hh:mm dd-MM-yyyy').format(order.timestamp)}'),
                   onTap: () {
                     showDialog(
                       context: context,
@@ -42,8 +48,10 @@ class OrderHistoryScreen extends StatelessWidget {
                           content: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              ...order.meals.map((meal) => Text('${meal.name}: ${meal.quantity}')),
-                              ...order.drinks.map((drink) => Text('${drink.name}: ${drink.quantity}')),
+                              ...order.meals.map((meal) =>
+                                  Text('${meal.name}: ${meal.quantity}')),
+                              ...order.drinks.map((drink) =>
+                                  Text('${drink.name}: ${drink.quantity}')),
                             ],
                           ),
                           actions: [

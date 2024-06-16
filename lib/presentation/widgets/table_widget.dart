@@ -21,10 +21,10 @@ class TableWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.table_restaurant_rounded, size: 40),
+          const Icon(Icons.table_restaurant_rounded, size: 40, color: Colors.green),
           Text(
             'Table ${table.id}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
